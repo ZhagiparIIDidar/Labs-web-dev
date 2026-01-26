@@ -1,78 +1,108 @@
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+    background-image: url("https://rossita-travel.com/upload/iblock/65f/i2qri8bvu4xdea0omqkli0w8wlof92kv.jpg");
+    background-size: cover;
+    /* растягивает изображение, чтобы покрыть весь экран */
+    background-repeat: no-repeat;
+    /* чтобы не повторялось */
+    background-position: center center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
 
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+header {
+    background-image: url("https://rossita-travel.com/upload/iblock/65f/i2qri8bvu4xdea0omqkli0w8wlof92kv.jpg");
+    background-size: cover;
+    /* растягивает изображение, чтобы покрыть весь экран */
+    background-repeat: no-repeat;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-        nav {
-            background-color: #333;
-        }
+img {
+    width: 300px;
+    height: 300px;
+}
 
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            display: inline-block;
-        }
+#img1 {
+    width: 400px;
+}
 
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+#img2 {
+    width: 600px;
+}
 
-        main {
-            padding: 20px;
-        }
+nav {
+    background-color: #333;
+}
 
-        section {
-            margin-bottom: 30px;
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
 
-        h1, h2, h3 {
-            color: #4CAF50;
-        }
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+main {
+    padding: 20px;
+}
 
-        table, th, td {
-            border: 1px solid #ddd;
-        }
+section {
+    margin-bottom: 30px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
+h1,
+h2,
+h3 {
+    color: #4CAF50;
+}
 
-        th {
-            background-color: #f2f2f2;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        form input, form textarea, form select {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0 10px 0;
-            box-sizing: border-box;
-        }
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
+th,
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
