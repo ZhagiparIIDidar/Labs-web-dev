@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы HTML и CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Добро пожаловать в основы HTML и CSS</h1>
+</header>
+
+<nav>
+    <a href="#about">О сайте</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#contact">Контакты</a>
+</nav>
+
+<main>
+    <!-- Раздел текста -->
+    <section id="about">
+        <h2>О сайте</h2>
+        <p>Это пример базового HTML-документа с CSS-стилями. Здесь используются заголовки, параграфы, ссылки, изображения, таблицы и формы.</p>
+    </section>
+
+    <!-- Галерея изображений -->
+    <section id="gallery">
+        <h2>Галерея</h2>
+        <img src="https://via.placeholder.com/150" alt="Пример изображения">
+        <img src="https://via.placeholder.com/150" alt="Пример изображения">
+        <img src="https://via.placeholder.com/150" alt="Пример изображения">
+    </section>
+
+    <!-- Таблица -->
+    <section id="table">
+        <h2>Таблица</h2>
+        <table>
+            <tr>
+                <th>Имя</th>
+                <th>Возраст</th>
+                <th>Город</th>
+            </tr>
+            <tr>
+                <td>Дидар</td>
+                <td>17</td>
+                <td>Алматы</td>
+            </tr>
+            <tr>
+                <td>Айгерим</td>
+                <td>18</td>
+                <td>Нур-Султан</td>
+            </tr>
+            
+        </table>
+    </section>
+
+    <!-- Форма -->
+    <section id="contact">
+        <h2>Форма обратной связи</h2>
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Введите ваш email">
+
+            <label for="message">Сообщение:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Введите сообщение"></textarea>
+
+            <label for="topic">Тема:</label>
+            <select id="topic" name="topic">
+                <option value="question">Вопрос</option>
+                <option value="feedback">Обратная связь</option>
+                <option value="other">Другое</option>
+            </select>
+
+            <input type="submit" value="Отправить">
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Все права защищены</p>
+</footer>
+
+</body>
+</html>
