@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    height: 90vh;
+}
+
+.overview {
+    border-right: 3px solid #3D4F5C;
+    margin: 0;
+    width: 57%;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+    background-color: #0C1014;
+}
+
+.overview .logo img {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.photo {
+    margin: 0;
+    padding: 0;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+}
+
+.overview img {
+    height: 400px;
+    width: 500px;
+    padding: 0;
+    margin: 0;
+}
+
+.hero {
+    max-width: 680px;
+    padding: 0;
+    margin-left: 100px;
+    margin-top: 130px;
+
+
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.accent-red {
+    color: #ff4d00;
+}
+
+.accent-pink {
+    color: #ff007a;
+}
+
+
+.auth-bl {
+    margin: 0;
+    width: 43%;
+    height: auto;
+    background-color: rgb(21, 33, 39);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    padding-top: 50px;
+
+}
+
+.auth-bl * {
+    width: 80%;
+}
+
+.tit {
+    width: 80%;
+    padding: 0%;
+    padding-right: 30px;
+}
+
+.title {
+    margin: 0;
+    padding: 0%;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.input {
+    font-weight: 600;
+    height: 30px;
+    padding: 14px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 0.1px solid RGB(150, 155, 158);
+    outline: none;
+    background-color: rgb(21, 33, 39);
+    color: white;
+}
+
+.input::placeholder {
+    color: #9aa4aa;
+}
+
+button {
+    height: 43px;
+    padding: 0px;
+    border-radius: 25px;
+    border: none;
+    background-color: #0e2f53;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.btn-login {
+    margin: 0;
+    margin-top: 15px;
+    color: #6c7782;
+    font: bold;
+    font-weight: 600;
+    background-color: #0D3C71;
+}
+
+.btn-login:hover {
+    background-color: #1a5494;
+}
+
+.forgot {
+    height: 43px;
+    text-decoration: none;
+    background-color: inherit;
+}
+
+.forgot:hover {
+    background-color: #2a3944;
+}
+
+.btn-facebook {
+    background-color: #152127;
+    margin: 0;
+    margin-top: 40px;
+    border: 1px solid RGB(150, 155, 158);
+}
+
+.btn-register {
+    background-color: #152127;
+    border: 2px solid #2B588A;
+}
+
+.meta {
+    display: flex;
+    color: white;
+    font-size: 18px;
+}
+
+.meta img {
+    margin-left: 40%;
+    margin-right: 10px;
+    height: 15px;
+    width: 15px;
+}
+
+
+.meta-footer {
+    border-top: 1px solid #3D4F5C;
+    background-color: #0C1014;
+    padding: 20px 40px;
+    font-size: 12px;
+    color: #b0b3b8;
+    line-height: 1.5;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-links {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #8e8e8e;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    color: #8e8e8e;
+}
