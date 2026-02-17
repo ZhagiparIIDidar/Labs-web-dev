@@ -1,0 +1,43 @@
+<!-- app/app.component.html -->
+<div class="app-container">
+  <header>
+    <h1>{{ title }}</h1>
+    <nav>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Главная
+      </a>
+      <a routerLink="/tasks" routerLinkActive="active">
+        Все задачи
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <router-outlet />
+
+    <!-- Главная страница -->
+    <div class="dashboard">
+      <section class="form-section">
+        <app-task-form (taskAdded)="onTaskAdded($event)" />
+      </section>
+
+      <section class="list-section">
+        <div class="section-header">
+          <h2>Последние задачи</h2>
+          <button (click)="toggleDetails()">
+            {{ showTaskDetails ? 'Скрыть' : 'Показать' }} детали
+          </button>
+        </div>
+
+        @defer (on viewport) {
+        <app-task-list [tasks]="tasks().slice(0, 3)" [showDetails]="showTaskDetails"
+          (toggleStatus)="onToggleStatus($event)" (deleteTask)="onDeleteTask($event)" />
+        } @placeholder {
+        <div class="loading">Загрузка списка задач...</div>
+        } @loading {
+        <div class="loading">Загрузка...</div>
+        }
+      </section>
+    </div>
+  </main>
+</div>

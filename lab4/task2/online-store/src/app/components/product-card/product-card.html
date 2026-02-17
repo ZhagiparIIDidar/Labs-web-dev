@@ -1,0 +1,44 @@
+<div class="product-card" (click)="shareOnTelegram()">
+    <div class="image-container" (mouseenter)="showGallery = true" (mouseleave)="showGallery = false">
+        <img [src]="product.images[currentImageIndex]" [alt]="product.name" class="main-image">
+
+        <div class="gallery-controls" *ngIf="showGallery">
+            <button class="nav-btn prev" (click)="prevImage()">❮</button>
+            <button class="nav-btn next" (click)="nextImage()">❯</button>
+        </div>
+
+        <div class="thumbnail-strip">
+            <img *ngFor="let image of product.images; let i = index" [src]="image"
+                [class.active]="i === currentImageIndex" (click)="setImage(i)" class="thumbnail">
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h3 class="product-name">
+            <a [href]="product.link" target="_blank" rel="noopener noreferrer">
+                {{ product.name }}
+            </a>
+        </h3>
+
+        <p class="product-description">{{ product.description }}</p>
+
+        <div class="rating-container">
+            <span class="stars">
+                <span *ngFor="let star of getStarsArray()" class="star">
+                    <span *ngIf="star === 1">★</span>
+                    <span *ngIf="star === 0.5">⯨</span>
+                    <span *ngIf="star === 0">☆</span>
+                </span>
+            </span>
+            <span class="rating-value">{{ product.rating }}/5</span>
+        </div>
+
+        <div class="price">{{ formatPrice(product.price) }}</div>
+
+        <div class="share-buttons">
+            <button class="share-btn telegram" (click)="shareOnTelegram()">
+                <span class="btn-icon">✈️</span> Telegram
+            </button>
+        </div>
+    </div>
+</div>

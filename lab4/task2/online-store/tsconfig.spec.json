@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [],  // Удалите "jasmine" из массива
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

@@ -1,0 +1,14 @@
+<div class="container">
+    <header class="header">
+        <h1>Kaspi.kz Магазин</h1>
+        <p class="subtitle">Лучшие товары с Kaspi.kz</p>
+    </header>
+
+    <div class="product-grid">
+        <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Kaspi.kz Магазин. Все товары взяты с реального Kaspi.kz</p>
+    </footer>
+</div>

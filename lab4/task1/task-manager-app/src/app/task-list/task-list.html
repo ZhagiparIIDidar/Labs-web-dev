@@ -1,0 +1,41 @@
+<!-- app/task-list/task-list.component.html -->
+<div class="task-list">
+    <h3>Список задач ({{ tasks.length }})</h3>
+
+    @if (tasks.length > 0) {
+    @for (task of tasks; track task.id) {
+    <div class="task-item" [class.completed]="task.completed">
+        <div class="task-header">
+            <h4>{{ task.title }}</h4>
+            <span class="priority" [ngClass]="getPriorityClass(task.priority)">
+                {{ task.priority | uppercase }}
+            </span>
+        </div>
+
+        @if (showDetails && task.description) {
+        <p class="description">{{ task.description }}</p>
+        }
+
+        <div class="task-footer">
+            <span class="status">
+                {{ task.completed | taskStatus }}
+            </span>
+
+            <div class="actions">
+                <button (click)="onToggle(task.id)" class="toggle-btn">
+                    {{ task.completed ? 'Вернуть в работу' : 'Завершить' }}
+                </button>
+                <button (click)="onDelete(task.id)" class="delete-btn">
+                    Удалить
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+    } @else {
+    <div class="empty-state">
+        <p>Задачи отсутствуют</p>
+        <img ngSrc="/assets/empty.svg" width="200" height="200" alt="Нет задач" priority>
+    </div>
+    }
+</div>
