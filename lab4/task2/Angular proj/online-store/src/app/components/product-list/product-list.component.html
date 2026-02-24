@@ -1,9 +1,10 @@
-@for ( product of products; track product.id) {
-<div class="product_list">
-    <app-product-item [product]="product" (deleteList)="onDeleteProduct($event)">
-        ></app-product-item>
+<div class="products_container">
+    @for ( product of products; track product.id) {
+    <div class="product_item">
+        <app-product-item [product]="product" (deleteList)="onDeleteProduct($event)">
+            ></app-product-item>
+    </div>
+    }@empty {
+    <p class="text-center">Нет товаров</p>
+    }
 </div>
-
-}@empty {
-<p class="text-center">Нет товаров</p>
-}
