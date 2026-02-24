@@ -1,0 +1,45 @@
+<footer></footer>
+
+<header>
+    <button class="btn btn-primary">
+        <a routerLink="/cart">cart</a>
+    </button>
+    <button class="btn btn-primary">
+        <a routerLink="/categories">categories</a>
+    </button>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer></footer>
+
+<style>
+    header {
+        display: flex;
+        gap: 10px;
+
+    }
+
+    header div {
+        background-color: #d7c75a;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100px;
+        height: auto;
+    }
+
+    header div:hover {
+        background-color: #4b4b22;
+    }
+
+    header a {
+        text-decoration: none;
+        color: #1c1c16;
+    }
+
+    header a:hover {
+        color: #e1e19b;
+    }
+</style>

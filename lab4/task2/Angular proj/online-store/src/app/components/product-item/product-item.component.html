@@ -1,0 +1,40 @@
+<!-- product-item.component.html -->
+<div class="card" style="width: 18rem;">
+    <img [src]="product.mainImage" class="card-img-top" [alt]="product.name">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text"><strong>Цена:</strong> {{ product.price }} ₽</p>
+        <p class="card-text"><strong>Рейтинг:</strong> ⭐ {{ product.rating }}</p>
+
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-outline-danger" (click)="addLikes()">
+                ❤ {{ product.likes }}
+            </button>
+
+            <button class="btn btn-outline-warning" (click)="removeFromList()">
+                🗑️ Удалить с листа
+            </button>
+
+            <button class="btn btn-outline-secondary" (click)="removeFromCart()">
+                🛒 Удалить с корзины
+            </button>
+
+            <button class="btn btn-success" (click)="addToCart()">
+                ➕ В корзину
+            </button>
+
+            <a class="btn btn-primary" [href]="product.kaspiLink" target="_blank">
+                Kaspi
+            </a>
+
+            <a class="btn btn-info" (click)="shareToTelegram()" target="_blank">
+                Telegram
+            </a>
+
+            <a class="btn btn-success" (click)="shareToWhatsApp()" target="_blank">
+                WhatsApp
+            </a>
+        </div>
+    </div>
+</div>

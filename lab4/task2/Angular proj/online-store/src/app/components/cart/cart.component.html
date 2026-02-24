@@ -1,0 +1,15 @@
+<main>
+    <div class="product_list">
+        @for (product of cart; track product.id) {
+        <div class="container text-center">
+            <div class="col">
+                <app-product-item [product]="product" (deleteCart)="remove(product.id)">
+                </app-product-item>
+
+            </div>
+        </div>
+        } @empty {
+        <p>Корзина пуста</p>
+        }
+    </div>
+</main>
