@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AlbumService } from '../../services/album.service';
 import { Album } from '../../models/album';
+import { Photo } from '../../models/photo';
 
 @Component({
   selector: 'app-album-detail',
@@ -14,6 +15,7 @@ import { Album } from '../../models/album';
 })
 export class AlbumDetailComponent implements OnInit {
   album?: Album;
+  photos: Photo[] = [];
   titleInput = '';
 
   constructor(
@@ -27,6 +29,7 @@ export class AlbumDetailComponent implements OnInit {
       const id = Number(params.get('id'));
       if (id) {
         this.fetch(id);
+        this.loadPhotos(id);
       }
     });
   }
@@ -46,6 +49,12 @@ export class AlbumDetailComponent implements OnInit {
     this.albumService.updateAlbum(updated).subscribe((a) => {
       this.album = a;
       alert('Album saved');
+    });
+  }
+
+  private loadPhotos(id: number): void {
+    this.albumService.getAlbumPhotos(id).subscribe((list) => {
+      this.photos = list;
     });
   }
 
