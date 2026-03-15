@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AlbumService } from '../../services/album.service';
 import { Album } from '../../models/album';
 import { Photo } from '../../models/photo';
@@ -13,10 +15,12 @@ import { Photo } from '../../models/photo';
   templateUrl: './one-album.component.html',
   styleUrls: ['./one-album.component.css'],
 })
-export class AlbumDetailComponent implements OnInit {
+export class AlbumDetailComponent implements OnInit, OnDestroy {
   album?: Album;
   photos: Photo[] = [];
   titleInput = '';
+  limit = 5;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
@@ -25,20 +29,36 @@ export class AlbumDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      const id = Number(params.get('id'));
-      if (id) {
-        this.fetch(id);
-        this.loadPhotos(id);
-      }
-    });
+    const snapId = Number(this.route.snapshot.paramMap.get('id'));
+    if (snapId) {
+      this.fetch(snapId);
+      this.loadPhotos(snapId);
+      this.album = undefined; 
+    }
+
+    this.route.paramMap
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params) => {
+        const id = Number(params.get('id'));
+        if (id && id !== snapId) {
+          this.fetch(id);
+          this.loadPhotos(id);
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   fetch(id: number): void {
-    this.albumService.getAlbum(id).subscribe((a) => {
-      this.album = a;
-      this.titleInput = a.title;
-    });
+    this.albumService.getAlbum(id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((a) => {
+        this.album = a;
+        this.titleInput = a.title;
+      });
   }
 
   save(): void {
@@ -46,19 +66,22 @@ export class AlbumDetailComponent implements OnInit {
       return;
     }
     const updated: Album = { ...this.album, title: this.titleInput };
-    this.albumService.updateAlbum(updated).subscribe((a) => {
-      this.album = a;
-      alert('Album saved');
-    });
+    this.albumService.updateAlbum(updated)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((a) => {
+        this.album = a;
+        alert('Album saved');
+      });
   }
 
   private loadPhotos(id: number): void {
-    this.albumService.getAlbumPhotos(id).subscribe((list) => {
-      this.photos = list;
-    });
+    const limit = this.limit && this.limit > 0 ? this.limit : undefined;
+    this.albumService.getAlbumPhotos(id, limit)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((list) => {
+        this.photos = list;
+      });
   }
 
-  back(): void {
-    this.router.navigate(['/albums']);
-  }
+  
 }

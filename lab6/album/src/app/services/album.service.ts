@@ -20,8 +20,9 @@ export class AlbumService {
     return this.http.get<Album>(`${this.baseUrl}/albums/${id}`);
   }
 
-  getAlbumPhotos(id: number): Observable<Photo[]> {
-    return this.http.get<Photo[]>(`${this.baseUrl}/albums/${id}/photos`);
+  getAlbumPhotos(id: number, limit?: number): Observable<Photo[]> {
+    const limitParam = limit && limit > 0 ? `?_limit=${limit}` : '';
+    return this.http.get<Photo[]>(`${this.baseUrl}/albums/${id}/photos${limitParam}`);
   }
 
   updateAlbum(album: Album): Observable<Album> {
@@ -30,9 +31,5 @@ export class AlbumService {
 
   deleteAlbum(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/albums/${id}`);
-  }
-
-  addPhoto(photo: Partial<Photo>): Observable<Photo> {
-    return this.http.post<Photo>(`${this.baseUrl}/photos`, photo);
   }
 }
