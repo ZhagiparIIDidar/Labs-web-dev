@@ -1,4 +1,4 @@
-from informatics.problems._utils import util_hypotenuse
+from informatics.problems_1._utils import util_hypotenuse
 
 class A:
     @staticmethod

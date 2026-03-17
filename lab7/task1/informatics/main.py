@@ -1,4 +1,4 @@
-from problems import A, B, C, E
+from problems_1 import A, B, C, E
 
 def check_a() -> None:
     try:

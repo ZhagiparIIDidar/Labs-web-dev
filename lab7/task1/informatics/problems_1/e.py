@@ -1,4 +1,4 @@
-from informatics.problems._constants import RING_DISTANCE
+from informatics.problems_1._constants import RING_DISTANCE
 
 class E:
     @staticmethod
