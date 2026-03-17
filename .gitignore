@@ -1,0 +1,6 @@
+# Python relates
+__pycache__/
+*.pyc
+
+#IDEA related
+.idea/
