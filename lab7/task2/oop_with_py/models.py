@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 class Animal:
     def __init__(self, name: str, age: int, weight: float) -> None:
         self.name = name
@@ -16,6 +18,11 @@ class Animal:
     def __str__(self) -> str:
         return self.info()
 
+
+class Fish(Animal):
+    def __init__(self, name: str, age: int, weight: float, taste: str):
+        super().__init__(name, age, weight)
+        self.taste = taste
 
 class Dog(Animal):
     def __init__(self, name: str, age: int, weight: float, breed: str) -> None:

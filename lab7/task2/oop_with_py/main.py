@@ -5,7 +5,6 @@ def main() -> None:
     animals = [
         Dog("Rex", 3, 18.5, "Labrador"),
         Cat("Misty", 2, 4.2, "Gray"),
-        Animal("Unknown", 5, 10.0),
     ]
 
     for pet in animals:
