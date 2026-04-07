@@ -15,7 +15,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
         category = self.get_object()
         products = Product.objects.filter(category=category)
         serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
+        return Response()
 
 
 class ProductViewSet(viewsets.ModelViewSet):
